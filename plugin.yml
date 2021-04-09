@@ -1,0 +1,55 @@
+name: AdminTrollV2
+main: Rushil13579\AdminTrollV2\Main
+api: 3.0.0
+version: 1.0.0
+author: Rushil13579
+
+commands:
+  admintroll:
+    description: Opens the AdminTrollV2 Form!
+  fakeop:
+    description: Opens the AdminTrollV2 Form!
+  fakedeop:
+    description: Opens the AdminTrollV2 Form!
+  pumpkinhead:
+    description: Opens the AdminTrollV2 Form!
+  burn:
+    description: Opens the AdminTrollV2 Form!
+  freeze:
+    description: Opens the AdminTrollV2 Form!
+  launch:
+    description: Opens the AdminTrollV2 Form!
+  push:
+    description: Opens the AdminTrollV2 Form!
+  spam:
+    description: Opens the AdminTrollV2 Form!
+  crash:
+    description: Opens the AdminTrollV2 Form!
+  badapple:
+    description: Opens the AdminTrollV2 Form!
+  boom:
+    description: Opens the AdminTrollV2 Form!
+  switch:
+    description: Opens the AdminTrollV2 Form!
+  potatotroll:
+    description: Opens the AdminTrollV2 Form!
+  fakerestart:
+    description: Opens the AdminTrollV2 Form!
+  turn:
+    description: Opens the AdminTrollV2 Form!
+  alone:
+    description: Opens the AdminTrollV2 Form!
+  hurt:
+    description: Opens the AdminTrollV2 Form!
+  starve:
+    description: Opens the AdminTrollV2 Form!
+  clumsy:
+    description: Opens the AdminTrollV2 Form!
+  dropinv:
+    description: Opens the AdminTrollV2 Form!
+  shuffle:
+    description: Opens the AdminTrollV2 Form!
+  nomine:
+    description: Opens the AdminTrollV2 Form!
+  noplace:
+    description: Opens the AdminTrollV2 Form!
