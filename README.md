@@ -33,6 +33,7 @@ Commands | Descriptions
 /void (player) | Journey to the center of the Earth, or in this case the void...
 /haunt (player) | Spooky sounds O_O!
 /fakeban (player) | Are you sure you got banned?
+/garble (player) | The victim's messages will stop making sense (toggleable)
 /chat (player) [message...] | Sends a chat message or run a command on behalf of the victim
 /burn (player) [seconds...] | BURN!!
 /hurt (player) [damage...] | Ouch! That hurts...
@@ -48,7 +49,6 @@ Commands | Descriptions
 - Web (Traps the victim in spider web)
 - Anvil (Drops anvil's on the player)
 - Spin (Spin's the victim)
-- Garble (Shuffle's the victim's messages)
 - Configurable values for some trolls
 
 ## Credits
