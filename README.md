@@ -53,4 +53,4 @@ Commands | Descriptions
 
 ## Credits
 
-- Ideas taken from [TrollBoss](https://www.spigotmc.org/resources/trollboss.47423/) and [AdminTroll](https://poggit.pmmp.io/p/admintroll)
+- Ideas taken from [TrollBoss](https://www.spigotmc.org/resources/trollboss.47423/), [TrollCommands++](https://dev.bukkit.org/projects/troll-commands-plus-plus) and [AdminTroll](https://poggit.pmmp.io/p/admintroll)
