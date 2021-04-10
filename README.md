@@ -59,4 +59,4 @@ Trap | /trap (player) [seconds...] | Traps the victim in a glass box
 
 ## Credits
 
-- Ideas taken from TrollBoss from Spigot and AdminTroll from poggit
+- Ideas taken from [TrollBoss](https://www.spigotmc.org/resources/trollboss.47423/) and [AdminTroll](https://poggit.pmmp.io/p/admintroll)
