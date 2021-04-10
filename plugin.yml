@@ -2,60 +2,71 @@ name: AdminTrollV2
 main: Rushil13579\AdminTrollV2\Main
 api: 3.0.0
 version: 1.0.0
+mcpe-protocol: [431]
 author: Rushil13579
 
 commands:
     trollhelp:
-        description: Help regarding AdminTrollV2!
+        description: List of trolls and thier usages
     fakerestart:
-        description: FakeRestart Troll!
+        description: Awww.. the server is restarting, OR IS IT?
     fakeop:
-        description: FakeOp Troll!
+        description: Sends a op message to the victim. They are not opped...
     fakedeop:
-        description: FakeDeop Troll!
+        description: Sends a deop message to the victim. They are not deopped...
     pumpkinhead:
-        description: PumpkinHead Troll!
+        description: Gotta hide from the endermen (undoable)
     launch:
-        description: Launch Troll!
+        description: 3... 2... 1... liftoff!
     push:
-        description: Push Troll!
+        description: An uncontrolled flight
     spam:
-        description: Spam Troll!
+        description: Spams the victim's chat in enchantment table language... see if you can decipher it
     crash:
-        description: Crash Troll!
+        description: Kicks the play with a not so nice disconnected message
     badapple:
-        description: BadApple Troll!
+        description: The doctor says, never eat an apple if it has gone bad... what if you still do?
     boom:
-        description: Boom Troll!
-    switch:
-        description: Switch Troll!
+        description: Blow up your enemies!
+    swap:
+        description: Swap positions with your victim
     potatoinc:
-        description: PotatoInv Troll!
+        description: Fills the victim's inventory with potatoes (undoable)
     turn:
-        description: Turn Troll!
+        description: Turn the victim 180 degrees
     alone:
-        description: Alone Troll!
+        description: Hides every player for the victim (toggleable)
     clumsy:
-        description: Clumsy Troll!
+        description: Carefull! The victim might just drop something
     dropinv:
-        description: DropInv Troll!
+        description: The victim fell and dropped his inventory (undoable)
     shuffle:
-        description: Shuffle Troll!
+        description: Ugh! I dont even know what is where now... (undoable)
     drunk:
-        description: Drunk Troll!
+        description: Drank too much... feeling nauseous
     void:
-        description: Void Troll!
+        description: Journey to the center of the Earth, or in this case the void...
+    haunt:
+        description: Spooky sounds O_O!
+    fakeban:
+        description: Are you sure you got banned?
+    garble:
+        description: The victim's messages will stop making sense (toggleable)
     chat:
-        description: Chat Troll!
+        description: Sends a chat message or run a command on behalf of the victim
     burn:
-        description: Burn Troll!
+        description: BURN!!
     hurt:
-        description: Hurt Troll!
+        description: Ouch! That hurts...
     starve:
-        description: Starve Troll!
+        description: The victim's metabolism must be really fast
     nomine:
-        description: NoMine Troll!
+        description: Oh cant mine? Probably lag...
     noplace:
-        description: NoPlace Troll!
+        description: Oh cant place? Probably lag...
     trap:
-        description: Trap Troll!
+        description: The victim does not deserve to be free
+
+permissions:
+    admintrollv2.all:
+        description: Master permission for AdminTrollV2!

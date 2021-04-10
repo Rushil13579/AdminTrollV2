@@ -27,6 +27,8 @@ use pocketmine\level\{
     Explosion
 };
 
+use pocketmine\network\mcpe\protocol\LevelEventPacket;
+
 use pocketmine\nbt\tag\StringTag;
 
 use pocketmine\math\Vector3;
@@ -41,10 +43,11 @@ use Rushil13579\AdminTrollV2\Tasks\{
 class Main extends PluginBase {
 
     public $alone = [];
-    public $trapped = [];
     public $voiding = [];
+    public $garble = [];
     public $noMine = [];
     public $noPlace = [];
+    public $trapped = [];
 
     const PREFIX = '§3[§bAdminTrollV2§3]';
 
@@ -58,7 +61,7 @@ class Main extends PluginBase {
         'crash' => '/crash (player)',
         'badapple' => '/badapple (player)',
         'boom' => '/boom (player)',
-        'switch' => '/switch (player)',
+        'swap' => '/swap (player)',
         'potatoinv' => '/potatoinv (player)',
         'turn' => '/turn (player)',
         'alone' => '/alone (player)',
@@ -67,6 +70,9 @@ class Main extends PluginBase {
         'shuffle' => '/shuffle (player)',
         'drunk' => '/drunk (player)',
         'void' => '/void (player)',
+        'haunt' => '/haunt (player)',
+        'fakeban' => '/fakeban (player)',
+        'garble' => '/garble (player)',
         'chat' => '/chat (player) [message...]',
         'burn' => '/burn (player) [seconds...]',
         'hurt' => '/hurt (player) [damage...]',
@@ -125,6 +131,7 @@ class Main extends PluginBase {
             foreach($array as $name => $usage){
                 $troller->sendMessage('§e' . $name . ': §7' . $usage);
             }
+            $troller->sendMessage('§4Descriptions: §chttps://github.com/Rushil13579/AdminTrollV2');
             return false;
         }
 
@@ -145,6 +152,11 @@ class Main extends PluginBase {
         if($victim == null){
             $troller->sendMessage(self::PREFIX . ' Invalid Player Argument');
             $this->sendUsage($troller, $cmd->getName());
+            return false;
+        }
+
+        if($victim->hasPermission('admintrollv2.immune')){
+            $troller->sendMessage(self::PREFIX . ' §cError, this player is immune to all trolls!');
             return false;
         }
 
@@ -207,11 +219,11 @@ class Main extends PluginBase {
             return false;
         }
 
-        if($cmd->getName() == 'switch'){
+        if($cmd->getName() == 'swap'){
             $trollerPos = $troller->getPosition();
             $troller->teleport($victim->getPosition());
             $victim->teleport($trollerPos);
-            $troller->sendMessage(self::PREFIX . ' §c' . $victim->getName() . ' §ahas switched positions with you!');
+            $troller->sendMessage(self::PREFIX . ' §aYou have swaped positions with §c'  . $victim->getName() . '!');
             return false;
         }
 
@@ -236,15 +248,17 @@ class Main extends PluginBase {
         }
 
         if($cmd->getName() == 'alone'){
-            foreach($this->getServer()->getOnlinePlayers() as $player){
-                if(isset($this->alone[$victim->getName()])){
-                    unset($this->alone[$victim->getName()]);
+            if(isset($this->alone[$victim->getName()])){
+                unset($this->alone[$victim->getName()]);
+                $troller->sendMessage(self::PREFIX . ' §c' . $victim->getName() . ' §ais no longed alone!');
+                foreach($this->getServer()->getOnlinePlayers() as $player){
                     $victim->showPlayer($player);
-                    $troller->sendMessage(self::PREFIX . ' §c' . $victim->getName() . ' §ais no longed alone!');
-                } else {
-                    $this->alone[$player->getName()] = $victim->getName();
+                }
+            } else {
+                $this->alone[$player->getName()] = $victim->getName();
+                $troller->sendMessage(self::PREFIX . ' §c' . $victim->getName() . ' §ais now alone!');
+                foreach($this->getServer()->getOnlinePlayers() as $player){
                     $victim->hidePlayer($player);
-                    $troller->sendMessage(self::PREFIX . ' §c' . $victim->getName() . ' §ais now alone!');
                 }
             }
             return false;
@@ -290,47 +304,78 @@ class Main extends PluginBase {
                 return false;
             }
 
-            $x = $position->getX();
-            $y = $position->getY();
-            $z = $position->getZ();
+            $x = $position->x;
+            $y = $position->y;
+            $z = $position->z;
 
             $voidBlocks = [];
-            for($y = $position->getY(); $y >= 0; $y--){
+            for($y = $position->y; $y >= 0; $y--){
                 $voidBlocks[] = new Position($x, $y, $z);
             }
-            for($y = $position->getY(); $y >= 0; $y--){
+            for($y = $position->y; $y >= 0; $y--){
                 $voidBlocks[] = new Position($x + 1, $y, $z);
             }
-            for($y = $position->getY(); $y >= 0; $y--){
+            for($y = $position->y; $y >= 0; $y--){
                 $voidBlocks[] = new Position($x - 1, $y, $z);
             }
-            for($y = $position->getY(); $y >= 0; $y--){
+            for($y = $position->y; $y >= 0; $y--){
                 $voidBlocks[] = new Position($x, $y, $z + 1);
             }
-            for($y = $position->getY(); $y >= 0; $y--){
+            for($y = $position->y; $y >= 0; $y--){
                 $voidBlocks[] = new Position($x, $y, $z - 1);
             }
-            for($y = $position->getY(); $y >= 0; $y--){
+            for($y = $position->y; $y >= 0; $y--){
                 $voidBlocks[] = new Position($x + 1, $y, $z + 1);
             }
-            for($y = $position->getY(); $y >= 0; $y--){
+            for($y = $position->y; $y >= 0; $y--){
                 $voidBlocks[] = new Position($x + 1, $y, $z - 1);
             }
-            for($y = $position->getY(); $y >= 0; $y--){
+            for($y = $position->y; $y >= 0; $y--){
                 $voidBlocks[] = new Position($x - 1, $y, $z + 1);
             }
-            for($y = $position->getY(); $y >= 0; $y--){
+            for($y = $position->y; $y >= 0; $y--){
                 $voidBlocks[] = new Position($x - 1, $y, $z - 1);
             }
 
             $currentBlocks = [];
             foreach($voidBlocks as $key => $position){
-                $currentBlocks[] = $level->getBlock(new Vector3($position->getX(), $position->getY(), $position->getZ()));
+                $currentBlocks[] = $level->getBlock(new Vector3($position->x, $position->y, $position->z));
                 $level->setBlock($position, Block::get(Block::AIR));
             }
             $this->voidTask($victim, $currentBlocks);
             $this->voiding[$victim->getName()] = $victim->getName();
             $troller->sendMessage(self::PREFIX . ' §c' . $victim->getName() . ' §ahas been sent on a one way trip to the void!');
+            return false;
+        }
+
+        if($cmd->getName() == 'haunt'){
+            $v = mt_rand(1, 3);
+            if($v == 1){
+                $sound = LevelEventPacket::EVENT_SOUND_ENDERMAN_TELEPORT;
+            } elseif ($v == 2){
+                $sound = LevelEventPacket::EVENT_SOUND_GHAST;
+            } else {
+                $sound = LevelEventPacket::EVENT_SOUND_BLAZE_SHOOT;
+            }
+            $victim->getLevel()->broadcastLevelEvent($victim->getPosition(), $sound);
+            $troller->sendMessage(self::PREFIX . ' §c' . $victim->getName() . ' §ais now hearing spooky sounds!');
+            return false;
+        }
+
+        if($cmd->getName() == 'fakeban'){
+            $victim->kick('§fBanned by admin.', false);
+            $troller->sendMessage(self::PREFIX . ' §c' . $victim->getName() . ' §ahas been fake banned!');
+            return false;
+        }
+
+        if($cmd->getName() == 'garble'){
+            if(isset($this->garble[$victim->getName()])){
+                unset($this->garble[$victim->getName()]);
+                $troller->sendMessage(self::PREFIX . ' §c' . $victim->getName() . '\'s §amessages will now make sense!');
+            } else {
+                $this->garble[$victim->getName()] = $victim->getName();
+                $troller->sendMessage(self::PREFIX . ' §c' . $victim->getName() . '\'s §amessages will now make no sense!');
+            }
             return false;
         }
 
@@ -399,9 +444,9 @@ class Main extends PluginBase {
                 return false;
             }
 
-            $x = $position->getX();
-            $y = $position->getY();
-            $z = $position->getZ();
+            $x = $position->x;
+            $y = $position->y;
+            $z = $position->z;
 
             $trapBlocks = [
                 new Position($x, $y - 1, $z),
@@ -418,7 +463,7 @@ class Main extends PluginBase {
 
             $currentBlocks = [];
             foreach($trapBlocks as $key => $position){
-                $currentBlocks[] = $level->getBlock(new Vector3($position->getX(), $position->getY(), $position->getZ()));
+                $currentBlocks[] = $level->getBlock(new Vector3($position->x, $position->y, $position->z));
                 $level->setBlock($position, Block::get(Block::GLASS));
             }
             $this->trapTask($victim, $value, $currentBlocks);

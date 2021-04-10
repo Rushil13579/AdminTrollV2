@@ -7,6 +7,7 @@ use pocketmine\Player;
 use pocketmine\event\Listener;
 use pocketmine\event\player\{
     PlayerItemConsumeEvent,
+    PlayerChatEvent,
     PlayerCommandPreprocessEvent
 };
 use pocketmine\event\block\{
@@ -39,6 +40,17 @@ class EventListener implements Listener {
                     $player->setHealth(0);
                 }
             }
+        }
+    }
+
+    public function onChat(PlayerChatEvent $ev){
+        $player = $ev->getPlayer();
+
+        if(isset($this->main->garble[$player->getName()])){
+            $array = explode(' ', $ev->getMessage());
+            shuffle($array);
+            $msg = implode(' ', $array);
+            $ev->setMessage($msg);
         }
     }
 
