@@ -38,7 +38,7 @@ Trap | /trap (player) [seconds...]
 ### Extras
 
 - /trollhelp For a list of trolls and thier usages
-- admintrollv2.* is the permission for all commands
+- admintrollv2.all is the permission for all commands
 - void and trap revert the blocks after the troll is over
 - Pumpkin Head , Potato Inv will lead to the loss of items
 
