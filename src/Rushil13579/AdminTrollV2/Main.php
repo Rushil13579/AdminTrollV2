@@ -406,7 +406,7 @@ class Main extends PluginBase {
         }
         
         if($cmd->getName() == 'hurt'){
-            $ev = new EntityDamageEvent($victim, EntityDamageEvent::CAUSE_TROLL, (int) $value);
+            $ev = new EntityDamageEvent($victim, EntityDamageEvent::CAUSE_CUSTOM, (int) $value);
             $victim->attack($ev);
             $troller->sendMessage(self::PREFIX . ' §c' . $victim->getName() . ' §ais now being hurt!');
             return false;

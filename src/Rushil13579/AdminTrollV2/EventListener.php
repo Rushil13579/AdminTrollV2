@@ -15,6 +15,8 @@ use pocketmine\event\block\{
 };
 use pocketmine\event\player\PlayerCommandPreprocessEvent;
 
+use pocketmine\item\Item;
+
 use pocketmine\nbt\tag\StringTag;
 
 use Rushil13579\AdminTrollV2\Main;
