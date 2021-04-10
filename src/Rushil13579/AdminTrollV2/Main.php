@@ -255,7 +255,7 @@ class Main extends PluginBase {
                     $victim->showPlayer($player);
                 }
             } else {
-                $this->alone[$player->getName()] = $victim->getName();
+                $this->alone[$victim->getName()] = $victim->getName();
                 $troller->sendMessage(self::PREFIX . ' §c' . $victim->getName() . ' §ais now alone!');
                 foreach($this->getServer()->getOnlinePlayers() as $player){
                     $victim->hidePlayer($player);
