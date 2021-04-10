@@ -23,7 +23,7 @@ Commands | Descriptions
 /potatoinv (player) | Fills the victim's inventory with potatoes (undoable)
 /turn (player) | Turn the victim 180 degrees
 /alone (player) | Hides every player for the victim (toggleable)
-/clumsy (player) | Carefull! the victim might just drop something
+/clumsy (player) | Carefull! The victim might just drop something
 /dropinv (player) | The victim fell and dropped his inventory (undoable)
 /shuffle (player) | Ugh! I dont even know what is where now... (undoable)
 /drunk (player) | Drank too much... feeling nauseous
