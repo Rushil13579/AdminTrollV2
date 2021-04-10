@@ -6,7 +6,7 @@ A Troll Plugin for Pocketmine-MP (3.0.0 and above)
 ## Trolls
 
 Name | Usage | Description
---------------------------
+-----|-------|------------
 Fake Op | /fakeop <player>
 Fake Deop | /fakedrop <player>
 Pumpkin Head | pumpkinhead <player>
