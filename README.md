@@ -9,7 +9,7 @@ A Troll Plugin for Pocketmine-MP (3.0.0 and above)
 Commands | Descriptions
 ---------|-------------
 /trollhelp | List of trolls and thier usages
-/fakerestart | Awww.. the server is restarting, OR IS IT?
+/fakerestart | Awww... the server is restarting, OR IS IT?
 /fakeop (player) | Sends a op message to the victim. They are not opped...
 /fakedeop (player) | Sends a deop message to the victim. They are not deopped...
 /pumpkinhead (player) | Gotta hide from the endermen (undoable)
