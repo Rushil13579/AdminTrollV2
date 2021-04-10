@@ -48,6 +48,7 @@ Commands | Descriptions
 - Web (Traps the victim in spider web)
 - Anvil (Drops anvil's on the player)
 - Spin (Spin's the victim)
+- Garble (Shuffle's the victim's messages)
 - Configurable values for some trolls
 
 ## Credits
