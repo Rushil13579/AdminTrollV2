@@ -6,6 +6,9 @@ A Troll Plugin for Pocketmine-MP (3.0.0 and above)
 
 ## Features
 
+- Permission: **admintrollv2.all**
+- No troll causes any terrain damage
+
 Commands | Descriptions
 ---------|-------------
 /trollhelp | List of trolls and thier usages
@@ -37,10 +40,6 @@ Commands | Descriptions
 /nomine (player) [seconds...] | Oh cant mine? Probably lag...
 /noplace (player) [seconds...] | Oh cant place? Probably lag...
 /trap (player) [seconds...] | The victim does not deserve to be free
-
-- Permission: **admintrollv2.all**
-
-- No troll causes any terrain damage
 
 ## Future Plans
 - Bolt (Strikes the victim with a lightning bolt)
