@@ -5,4 +5,5 @@ branches:
 projects:
   AdminTrollV2:
     path: ""
+    icon: logo.png
 ...
