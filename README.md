@@ -1,13 +1,14 @@
 # AdminTrollV2
 A Pocketmine-MP plugin to troll your frenimies!
 
-- The BEST troll plugin for Pocketmine-MP!
+- The **BEST** troll plugin for Pocketmine-MP!
 - Contains 30 unique trolls, with many more to come
 - If you have any suggestions/ideas/questions/bugs go [here](https://github.com/Rushil13579/AdminTrollV2/issues) or contact me on discord at **Rushil#2326**
 
 ## Features
 
-- Permission: **admintrollv2.all**
+- Command Permission: **admintrollv2.all**
+- Immune Permission: **admintrollv2.immune**
 - No troll causes any terrain damage
 
 Commands | Descriptions
@@ -27,7 +28,7 @@ Commands | Descriptions
 /potatoinv (player) | Fills the victim's inventory with potatoes (undoable)
 /turn (player) | Turn the victim 180 degrees
 /alone (player) | Hides every player for the victim (toggleable)
-/clumsy (player) | Carefull! The victim might just drop something
+/clumsy (player) | Careful! The victim might just drop something
 /dropinv (player) | The victim fell and dropped his inventory (undoable)
 /shuffle (player) | Ugh! I dont even know what is where now... (undoable)
 /drunk (player) | Drank too much... feeling nauseous
