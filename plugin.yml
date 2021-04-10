@@ -15,8 +15,6 @@ commands:
         description: FakeDeop Troll!
     pumpkinhead:
         description: PumpkinHead Troll!
-    nomove:
-        description: NoMove Troll!
     launch:
         description: Launch Troll!
     push:

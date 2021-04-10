@@ -40,7 +40,6 @@ use Rushil13579\AdminTrollV2\Tasks\{
 
 class Main extends PluginBase {
 
-    public $frozen = [];
     public $alone = [];
     public $trapped = [];
     public $voiding = [];
@@ -48,64 +47,33 @@ class Main extends PluginBase {
     public $noPlace = [];
 
     const PREFIX = '§3[§bAdminTrollV2§3]';
-    
-    const TROLLS = [
-        'Fake Restart',
-        'Fake Op',
-        'Fake Deop',
-        'Pumpkin Head',
-        'No Move',
-        'Launch',
-        'Push',
-        'Spam',
-        'Crash',
-        'Bad Apple',
-        'Boom',
-        'Switch',
-        'Potato Inv',
-        'Turn',
-        'Alone',
-        'Clumsy',
-        'Drop Inv',
-        'Shuffle',
-        'Drunk',
-        'Void',
-        'Chat',
-        'Burn',
-        'Hurt',
-        'Starve',
-        'No Mine',
-        'No Place',
-        'Trap'
-    ];
 
     const USAGES = [
-        'fakeop' => '/fakeop <player>',
-        'fakedeop' => '/fakedrop <player>',
-        'pumpkinhead' => 'pumpkinhead <player>',
-        'nomove' => '/nomove <player>',
-        'launch' => '/launch <player>',
-        'push' => '/push <player>',
-        'spam' => '/spam <player>',
-        'crash' => '/crash <player>',
-        'badapple' => '/badapple <player>',
-        'boom' => '/boom <player>',
-        'switch' => '/switch <player>',
-        'potatoinv' => '/potatoinv <player>',
-        'turn' => '/turn <player>',
-        'alone' => '/alone <player>',
-        'clumsy' => '/clumsy <player>',
-        'dropinv' => '/dropinv <player>',
-        'shuffle' => '/shuffle <player>',
-        'drunk' => '/drunk <player>',
-        'void' => '/void <player>',
-        'chat' => '/chat <player> [message...]',
-        'burn' => '/burn <player> <seconds>',
-        'hurt' => '/hurt <player> <damage>',
-        'starve' => '/starve <player> <amount>',
-        'nomine' => '/nomine <player> <seconds>',
-        'noplace' => '/noplace <player> <seconds>',
-        'trap' => '/trap <player> <seconds>'
+        'fakeop' => '/fakeop (player)',
+        'fakedeop' => '/fakedrop (player)',
+        'pumpkinhead' => '/pumpkinhead (player)',
+        'launch' => '/launch (player)',
+        'push' => '/push (player)',
+        'spam' => '/spam (player)',
+        'crash' => '/crash (player)',
+        'badapple' => '/badapple (player)',
+        'boom' => '/boom (player)',
+        'switch' => '/switch (player)',
+        'potatoinv' => '/potatoinv (player)',
+        'turn' => '/turn (player)',
+        'alone' => '/alone (player)',
+        'clumsy' => '/clumsy (player)',
+        'dropinv' => '/dropinv (player)',
+        'shuffle' => '/shuffle (player)',
+        'drunk' => '/drunk (player)',
+        'void' => '/void (player)',
+        'chat' => '/chat (player) [message...]',
+        'burn' => '/burn (player) [seconds...]',
+        'hurt' => '/hurt (player) [damage...]',
+        'starve' => '/starve (player) [amount...]',
+        'nomine' => '/nomine (player) [seconds...]',
+        'noplace' => '/noplace (player) [seconds...]',
+        'trap' => '/trap (player) [seconds...]'
     ];
 
     public function onEnable(){
@@ -146,7 +114,7 @@ class Main extends PluginBase {
             return false;
         }
 
-        if(!$troller->hasPermission('admintrollv2.*')){
+        if(!$troller->hasPermission('admintrollv2.all')){
             $troller->sendMessage(self::PREFIX . ' §cYou don\'t have permission to use this command');
             return false;
         }
@@ -196,19 +164,6 @@ class Main extends PluginBase {
             $pumpkin = Item::get(Item::PUMPKIN, 0, 1);
             $victim->getArmorInventory()->setHelmet($pumpkin);
             $troller->sendMessage(self::PREFIX . ' §c' . $victim->getName() . ' §anow has a pumpkin head!');
-            return false;
-        }
-  
-        if($cmd->getName() == 'nomove'){
-            if(isset($this->frozen[$victim->getName()])){
-                unset($this->frozen[$victim->getName()]);
-                $victim->setImmobile(false);
-                $troller->sendMessage(self::PREFIX . ' §c' . $victim->getName() . ' §ahas been allowed to move!');
-            } else {
-                $this->frozen[$victim->getName()] = $victim->getName();
-                $victim->setImmobile();
-                $troller->sendMessage(self::PREFIX . ' §c' . $victim->getName() . ' §ahas been prevented from moving!');
-            }
             return false;
         }
 

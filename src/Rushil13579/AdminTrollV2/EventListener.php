@@ -6,14 +6,13 @@ use pocketmine\Player;
 
 use pocketmine\event\Listener;
 use pocketmine\event\player\{
-    PlayerMoveEvent,
-    PlayerItemConsumeEvent
+    PlayerItemConsumeEvent,
+    PlayerCommandPreprocessEvent
 };
 use pocketmine\event\block\{
     BlockBreakEvent,
     BlockPlaceEvent
 };
-use pocketmine\event\player\PlayerCommandPreprocessEvent;
 
 use pocketmine\item\Item;
 
@@ -28,14 +27,6 @@ class EventListener implements Listener {
 
     public function __construct(Main $main){
         $this->main = $main;
-    }
-    
-    public function onMove(PlayerMoveEvent $ev){
-        $player = $ev->getPlayer();
-
-        if(isset($this->main->frozen[$player->getName()])){
-            $player->setImmobile();
-        }
     }
 
     public function onConsume(PlayerItemConsumeEvent $ev){
