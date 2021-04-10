@@ -1,6 +1,7 @@
 # AdminTrollV2
 A Troll Plugin for Pocketmine-MP (3.0.0 and above)
 
+- Contains 20 unique trolls, with many more to come
 - If you have any suggestions/ideas/questions/bugs go [here](https://github.com/Rushil13579/AdminTrollV2/issues) or contact me on discord at **Rushil#2326**
 
 ## Features
