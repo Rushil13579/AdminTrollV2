@@ -40,7 +40,7 @@ Trap | /trap (player) [seconds...] | Traps the victim in a glass box
 - /trollhelp For a list of trolls and thier usages
 - admintrollv2.all is the permission for all commands
 - void and trap revert the blocks after the troll is over
-- Pumpkin Head , Potato Inv will lead to the loss of items
+- Pumpkin Head [helmet] , Potato Inv [full inventory] will lead to the loss of items
 - Boom does not cause terrain damage
 - Alone troll can be turned of by running the command again
 - When trapped a player cannot run command or break blocks
@@ -49,6 +49,13 @@ Trap | /trap (player) [seconds...] | Traps the victim in a glass box
 ## Future Plans
 - Creep (plays mob sounds to the victim)
 - Lag (Lags the victim, doesnt affect the server)
+- Bolt (Strikes the victim with a lightning bolt)
+- Enderman (Teleports the victim all around)
+- Freefall (Makes the victim fall forever)
+- Web (Traps the victim in spider web)
+- Fakeban (Fake ban's the player)
+- Anvil (Drops anvil's on the player)
+- Configurable values for some trolls
 
 ## Credits
 
