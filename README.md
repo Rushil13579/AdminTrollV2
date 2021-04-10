@@ -49,7 +49,6 @@ Trap | /trap (player) [seconds...] | Traps the victim in a glass box
 
 ## Future Plans
 - Creep (plays mob sounds to the victim)
-- Lag (Lags the victim, doesnt affect the server)
 - Bolt (Strikes the victim with a lightning bolt)
 - Enderman (Teleports the victim all around)
 - Freefall (Makes the victim fall forever)
