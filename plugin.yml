@@ -5,51 +5,59 @@ version: 1.0.0
 author: Rushil13579
 
 commands:
-  admintroll:
-    description: Opens the AdminTrollV2 Form!
-  fakeop:
-    description: Opens the AdminTrollV2 Form!
-  fakedeop:
-    description: Opens the AdminTrollV2 Form!
-  pumpkinhead:
-    description: Opens the AdminTrollV2 Form!
-  burn:
-    description: Opens the AdminTrollV2 Form!
-  freeze:
-    description: Opens the AdminTrollV2 Form!
-  launch:
-    description: Opens the AdminTrollV2 Form!
-  push:
-    description: Opens the AdminTrollV2 Form!
-  spam:
-    description: Opens the AdminTrollV2 Form!
-  crash:
-    description: Opens the AdminTrollV2 Form!
-  badapple:
-    description: Opens the AdminTrollV2 Form!
-  boom:
-    description: Opens the AdminTrollV2 Form!
-  switch:
-    description: Opens the AdminTrollV2 Form!
-  potatotroll:
-    description: Opens the AdminTrollV2 Form!
-  fakerestart:
-    description: Opens the AdminTrollV2 Form!
-  turn:
-    description: Opens the AdminTrollV2 Form!
-  alone:
-    description: Opens the AdminTrollV2 Form!
-  hurt:
-    description: Opens the AdminTrollV2 Form!
-  starve:
-    description: Opens the AdminTrollV2 Form!
-  clumsy:
-    description: Opens the AdminTrollV2 Form!
-  dropinv:
-    description: Opens the AdminTrollV2 Form!
-  shuffle:
-    description: Opens the AdminTrollV2 Form!
-  nomine:
-    description: Opens the AdminTrollV2 Form!
-  noplace:
-    description: Opens the AdminTrollV2 Form!
+    trollhelp:
+        description: Help regarding AdminTrollV2!
+    fakerestart:
+        description: FakeRestart Troll!
+    fakeop:
+        description: FakeOp Troll!
+    fakedeop:
+        description: FakeDeop Troll!
+    pumpkinhead:
+        description: PumpkinHead Troll!
+    nomove:
+        description: NoMove Troll!
+    launch:
+        description: Launch Troll!
+    push:
+        description: Push Troll!
+    spam:
+        description: Spam Troll!
+    crash:
+        description: Crash Troll!
+    badapple:
+        description: BadApple Troll!
+    boom:
+        description: Boom Troll!
+    switch:
+        description: Switch Troll!
+    potatoinc:
+        description: PotatoInv Troll!
+    turn:
+        description: Turn Troll!
+    alone:
+        description: Alone Troll!
+    clumsy:
+        description: Clumsy Troll!
+    dropinv:
+        description: DropInv Troll!
+    shuffle:
+        description: Shuffle Troll!
+    drunk:
+        description: Drunk Troll!
+    void:
+        description: Void Troll!
+    chat:
+        description: Chat Troll!
+    burn:
+        description: Burn Troll!
+    hurt:
+        description: Hurt Troll!
+    starve:
+        description: Starve Troll!
+    nomine:
+        description: NoMine Troll!
+    noplace:
+        description: NoPlace Troll!
+    trap:
+        description: Trap Troll!

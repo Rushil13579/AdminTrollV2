@@ -5,11 +5,17 @@ namespace Rushil13579\AdminTrollV2;
 use pocketmine\Player;
 
 use pocketmine\event\Listener;
-use pocketmine\event\player\PlayerMoveEvent;
+use pocketmine\event\player\{
+    PlayerMoveEvent,
+    PlayerItemConsumeEvent
+};
 use pocketmine\event\block\{
     BlockBreakEvent,
-    BlockPlaceEvent,
+    BlockPlaceEvent
 };
+use pocketmine\event\player\PlayerCommandPreprocessEvent;
+
+use pocketmine\nbt\tag\StringTag;
 
 use Rushil13579\AdminTrollV2\Main;
 
@@ -30,10 +36,31 @@ class EventListener implements Listener {
         }
     }
 
+    public function onConsume(PlayerItemConsumeEvent $ev){
+        $player = $ev->getPlayer();
+        $item = $ev->getItem();
+
+        if($item->getId() == Item::APPLE and $item->getCustomName() == '§l§4Eat Me'){
+            if($item->getNamedTag()->hasTag('BadApple')){
+                if($item->getNamedTag()->getString('BadApple') == 'BadApple'){
+                    $player->setHealth(0);
+                }
+            }
+        }
+    }
+
+    public function onPreprocess(PlayerCommandPreprocessEvent $ev){
+        $player = $ev->getPlayer();
+
+        if(isset($this->main->trapped[$player->getName()]) or isset($this->main->voiding[$player->getName()])){
+            $ev->setCancelled();
+        }
+    }
+
     public function onBreak(BlockBreakEvent $ev){
         $player = $ev->getPlayer();
 
-        if(isset($this->main->noMine[$player->getName()])){
+        if(isset($this->main->noMine[$player->getName()]) or isset($this->main->trapped[$player->getName()])){
             $ev->setCancelled();
         }
     }
