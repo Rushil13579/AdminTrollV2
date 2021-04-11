@@ -50,6 +50,7 @@ Commands | Descriptions
 - Freefall (Makes the victim fall forever)
 - Web (Traps the victim in spider web)
 - Spin (Spin's the victim)
+- Lag (Causes fake lag to the victim, does not affect the server)
 - Configurable values for some trolls
 
 ## Credits
