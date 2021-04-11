@@ -49,7 +49,6 @@ Commands | Descriptions
 - Enderman (Teleports the victim all around)
 - Freefall (Makes the victim fall forever)
 - Web (Traps the victim in spider web)
-- Anvil (Drops anvil's on the player)
 - Spin (Spin's the victim)
 - Configurable values for some trolls
 
