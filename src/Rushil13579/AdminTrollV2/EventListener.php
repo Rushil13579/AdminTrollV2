@@ -6,13 +6,18 @@ use pocketmine\Player;
 
 use pocketmine\event\Listener;
 use pocketmine\event\player\{
-    PlayerItemConsumeEvent,
     PlayerChatEvent,
-    PlayerCommandPreprocessEvent
+    PlayerCommandPreprocessEvent,
+    PlayerItemConsumeEvent,
+    PlayerQuitEvent
 };
 use pocketmine\event\block\{
     BlockBreakEvent,
     BlockPlaceEvent
+};
+use pocketmine\event\server\{
+    DataPacketSendEvent,
+    DataPacketReceiveEvent
 };
 
 use pocketmine\item\Item;
@@ -30,7 +35,32 @@ class EventListener implements Listener {
         $this->main = $main;
     }
 
+    public function onChat(PlayerChatEvent $ev){
+        if($ev->isCancelled()) return null;
+
+        $player = $ev->getPlayer();
+
+        if(isset($this->main->garble[$player->getName()])){
+            $array = explode(' ', $ev->getMessage());
+            shuffle($array);
+            $msg = implode(' ', $array);
+            $ev->setMessage($msg);
+        }
+    }
+
+    public function onPreprocess(PlayerCommandPreprocessEvent $ev){
+        if($ev->isCancelled()) return null;
+
+        $player = $ev->getPlayer();
+
+        if(isset($this->main->trap[$player->getName()]) or isset($this->main->void[$player->getName()]) or isset($this->main->web[$player->getName()])){
+            $ev->setCancelled();
+        }
+    }
+
     public function onConsume(PlayerItemConsumeEvent $ev){
+        if($ev->isCancelled()) return null;
+
         $player = $ev->getPlayer();
         $item = $ev->getItem();
 
@@ -43,38 +73,74 @@ class EventListener implements Listener {
         }
     }
 
-    public function onChat(PlayerChatEvent $ev){
+    public function onQuit(PlayerQuitEvent $ev){
         $player = $ev->getPlayer();
 
-        if(isset($this->main->garble[$player->getName()])){
-            $array = explode(' ', $ev->getMessage());
-            shuffle($array);
-            $msg = implode(' ', $array);
-            $ev->setMessage($msg);
-        }
-    }
-
-    public function onPreprocess(PlayerCommandPreprocessEvent $ev){
-        $player = $ev->getPlayer();
-
-        if(isset($this->main->trapped[$player->getName()]) or isset($this->main->voiding[$player->getName()])){
-            $ev->setCancelled();
+        if(isset($this->main->lag[$player->getName()])){
+            unset($this->main->lag[$player->getName()]);
         }
     }
 
     public function onBreak(BlockBreakEvent $ev){
+        if($ev->isCancelled()) return null;
+
         $player = $ev->getPlayer();
 
-        if(isset($this->main->noMine[$player->getName()]) or isset($this->main->trapped[$player->getName()])){
+        if(isset($this->main->noMine[$player->getName()]) or isset($this->main->trap[$player->getName()])){
             $ev->setCancelled();
+        }
+
+        if(isset($this->main->rewind[$player->getName()])){
+            $currentBlock = $ev->getBlock();
+            $this->main->rewindBlockTask($player, $currentBlock);
         }
     }
 
     public function onPlace(BlockPlaceEvent $ev){
+        if($ev->isCancelled()) return null;
+
         $player = $ev->getPlayer();
 
         if(isset($this->main->noPlace[$player->getName()])){
             $ev->setCancelled();
+        }
+
+        if(isset($this->main->rewind[$player->getName()])){
+            $currentBlock = $ev->getBlockReplaced();
+            $this->main->rewindBlockTask($player, $currentBlock);
+        }
+    }
+
+    public function onSendPacket(DataPacketSendEvent $ev){
+        $player = $ev->getPlayer();
+        $packet = $ev->getPacket();
+
+        if(isset($this->main->lag[$player->getName()])){
+            $expiry = $this->main->lag[$player->getName()][0];
+            if($expiry > time()){
+                $ev->setCancelled();
+                $this->main->lag[$player->getName()][1][] = $packet;
+            } else {
+                $pks = $this->main->lag[$player->getName()][1];
+                unset($this->main->lag[$player->getName()]);
+                foreach($pks as $pk){
+                    if($pk->isEncoded){
+                        $pk->decode();
+                    }
+                    $player->sendDataPacket($pk);
+                }
+            }
+        }
+    }
+
+    public function onReceivePacket(DataPacketReceiveEvent $ev){
+        $player = $ev->getPlayer();
+
+        if(isset($this->main->lag[$player->getName()])){
+            $expiry = $this->main->lag[$player->getName()][0];
+            if($expiry > time()){
+                $ev->setCancelled();
+            }
         }
     }
 }

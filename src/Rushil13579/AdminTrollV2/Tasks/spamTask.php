@@ -16,7 +16,8 @@ class spamTask extends Task {
     /** @var Player */
     private $victim;
 
-    public $msgcount = 0;
+    /** @var Int */
+    private $msgcount = 0;
 
     public function __construct(Main $main, Player $victim){
         $this->main = $main;

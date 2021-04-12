@@ -16,7 +16,8 @@ class clumsyTask extends Task {
     /** @var Player */
     private $victim;
 
-    public $count = 0;
+    /** @var Int */
+    private $count = 0;
 
     public function __construct(Main $main, Player $victim){
         $this->main = $main;
@@ -31,7 +32,7 @@ class clumsyTask extends Task {
         foreach($this->victim->getInventory()->getContents() as $index => $item){
             if($index == $v){
                 $this->victim->getInventory()->removeItem($item);
-                $this->victim->getLevel()->dropItem($this->victim, $item);
+                $this->victim->level->dropItem($this->victim, $item);
                 $this->count++;
                 break;
             }

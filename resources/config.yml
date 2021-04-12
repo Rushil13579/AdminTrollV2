@@ -1,0 +1,48 @@
+# Configuration file for AdminTrollV2 by Rushil13579 | Rushil#2326
+
+# DO NOT TOUCH
+plugin_version: 1.1.0
+
+# Set to false if you want to disable the immune permission, true to enable
+immune_perm_active: true
+
+
+# ===== BOLT TROLL =====
+
+
+# Bolt troll might not work with some plugins... set to false to disable it [Test it and make your own decision]
+bolt_troll_enabled: true
+
+# Set this to true if you want bolt troll to set the ground to fire, false to disable
+bolt_troll_sets_ground_to_fire: true
+
+
+# ===== FREEFALL TROLL =====
+
+
+# Height from which the victim falls in freefall troll
+freefall_troll_height: 20
+
+
+# ===== REWIND TROLL =====
+
+
+# Seconds after which the rewind troll takes place
+# Eg: 10 would mean the broken block will come back after 10 seconds, or a placed block will disappear after 10 seconds
+rewind_troll_time: 10
+
+
+# ===== ENDERMAN TROLL =====
+
+
+# Range of the enderman troll's teleport
+enderman_troll_range: 100
+
+# Number of times the enderman troll will teleport a victim
+enderman_troll_count: 10
+
+# Seconds between each teleport in enderman troll
+enderman_troll_teleport_interval: 2
+
+
+

@@ -11,6 +11,7 @@ class fakeRestartTask extends Task {
     /** @var Main */
     private $main;
 
+    /** @var Int */
     private $timer = 10;
 
     public function __construct(Main $main){
