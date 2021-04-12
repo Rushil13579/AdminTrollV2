@@ -29,6 +29,7 @@ Commands | Descriptions
 /fakedeop (player) | Sends a deop message to the victim. They are not deopped...
 /fakeop (player) | Sends a op message to the victim. They are not opped...
 /fakerestart | Awww... the server is restarting, OR IS IT?
+/flip (player) | Flip the victim 180 degrees
 /freefall | Damn! This hole is deep, I have been falling forever!
 /garble (player) | The victim's messages will stop making sense (toggleable)
 /haunt (player) | Spooky sounds O_O!
@@ -48,7 +49,6 @@ Commands | Descriptions
 /swap (player) | Swap positions with your victim
 /trap (player) [seconds...] | The victim does not deserve to be free
 /trollhelp | List of trolls and thier usages
-/turn (player) | Turn the victim 180 degrees
 /void (player) | Journey to the center of the Earth, or in this case the void...
 /web (player) [seconds...] | Web em up!
 
