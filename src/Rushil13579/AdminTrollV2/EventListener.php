@@ -53,7 +53,7 @@ class EventListener implements Listener {
 
         $player = $ev->getPlayer();
 
-        if(isset($this->main->trap[$player->getName()]) or isset($this->main->void[$player->getName()]) or isset($this->main->web[$player->getName()])){
+        if(isset($this->main->trap[$player->getName()]) or isset($this->main->void[$player->getName()]) or isset($this->main->web[$player->getName()]) or isset($this->main->freefall[$player->getName()])){
             $ev->setCancelled();
         }
     }
@@ -78,6 +78,10 @@ class EventListener implements Listener {
 
         if(isset($this->main->lag[$player->getName()])){
             unset($this->main->lag[$player->getName()]);
+        }
+
+        if(isset($this->main->freefall[$player->getName()])){
+            unset($this->main->freefall[$player->getName()]);
         }
     }
 

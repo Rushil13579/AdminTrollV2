@@ -37,7 +37,7 @@ commands:
     fakerestart:
         description: Awww.. the server is restarting, OR IS IT?
     freefall:
-        description: Make your victim fall forever!
+        description: Damn! This hole is deep, I have been falling forever!
     garble:
         description: The victim's messages will stop making sense (toggleable)
     haunt:
@@ -61,7 +61,7 @@ commands:
     shuffle:
         description: Ugh! I dont even know what is where now... (undoable)
     rewind:
-        descripiton: Rewinds the blocks placed/broken by the victim. This ought to confuse em!
+        descripiton: Rewinds the blocks placed/broken by the victim. This ought to confuse em! (toggleable)
     spam:
         description: Spams the victim's chat in enchantment table language... see if you can decipher it
     spin:

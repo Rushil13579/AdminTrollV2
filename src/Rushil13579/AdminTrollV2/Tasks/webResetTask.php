@@ -28,8 +28,6 @@ class webResetTask extends Task {
     }
 
     public function onRun($tick){
-        if(empty($this->blocks)) return null;
-
         foreach ($this->blocks as $key => $block){
             if($block instanceof Block){
                 $block->level->setBlock($block->asVector3(), $block);

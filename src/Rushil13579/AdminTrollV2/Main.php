@@ -52,13 +52,14 @@ class Main extends PluginBase {
     public $cfg;
 
     public $alone = [];
-    public $void = [];
+    public $freefall = [];
     public $garble = [];
     public $lag = [];
     public $noMine = [];
     public $noPlace = [];
     public $rewind = [];
     public $trap = [];
+    public $void = [];
     public $web = [];
 
     const PREFIX = '§3[§bAdminTrollV2§3]';
@@ -202,7 +203,7 @@ class Main extends PluginBase {
 
         $victim = $this->getServer()->getPlayer($args[0]);
 
-        if($victim == null){
+        if($victim == null or !$victim->isOnline()){
             $troller->sendMessage(self::PREFIX . ' Invalid Player Argument');
             $this->sendUsage($troller, $cmd->getName());
             return false;
@@ -222,14 +223,12 @@ class Main extends PluginBase {
                 foreach($this->getServer()->getOnlinePlayers() as $player){
                     $victim->showPlayer($player);
                 }
-                return false;
             } else {
                 $this->alone[$victim->getName()] = $victim->getName();
                 $troller->sendMessage(self::PREFIX . ' §c' . $victim->getName() . ' §ais now alone!');
                 foreach($this->getServer()->getOnlinePlayers() as $player){
                     $victim->hidePlayer($player);
                 }
-                return false;
             }
             return false;
         }
@@ -351,11 +350,9 @@ class Main extends PluginBase {
             if(isset($this->garble[$victim->getName()])){
                 unset($this->garble[$victim->getName()]);
                 $troller->sendMessage(self::PREFIX . ' §c' . $victim->getName() . '\'s §amessages will now make sense!');
-                return false;
             } else {
                 $this->garble[$victim->getName()] = $victim->getName();
                 $troller->sendMessage(self::PREFIX . ' §c' . $victim->getName() . '\'s §amessages will now make no sense!');
-                return false;
             }
             return false;
         }

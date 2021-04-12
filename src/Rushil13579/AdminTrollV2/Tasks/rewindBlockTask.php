@@ -22,8 +22,6 @@ class rewindBlockTask extends Task {
     }
 
     public function onRun($tick){
-        if(!isset($this->block)) return null;
-
         if($this->block instanceof Block){
             $this->block->level->setBlock($this->block->asVector3(), $this->block);
         }
