@@ -79,6 +79,7 @@ class Main extends PluginBase {
         'fakeban' => '/fakeban (player)',
         'fakedeop' => '/fakedeop (player)',
         'fakeop' => '/fakeop (player)',
+        'flip' => '/flip (player)',
         'freefall' => '/freefall (player)',
         'garble' => '/garble (player)',
         'haunt' => '/haunt (player)',
@@ -96,8 +97,7 @@ class Main extends PluginBase {
         'spin' => '/spin (player) (speed) [count...]',
         'starve' => '/starve (player) [amount...]',
         'swap' => '/swap (player)',
-        'trap' => '/trap (player) [seconds...]',
-        'turn' => '/turn (player)',
+        'rap' => '/trap (player) [seconds...]',
         'void' => '/void (player)',
         'web' => '/web (player) [seconds...]'
     ];
@@ -334,6 +334,13 @@ class Main extends PluginBase {
             return false;
         }
 
+        if($cmd->getName() == 'flip'){
+            $nYaw = $victim->getYaw() + 180;
+            $victim->teleport($victim->asVector3(), $nYaw);
+            $troller->sendMessage(self::PREFIX . ' §c' . $victim->getName() . ' §ahas been flipped 180!');
+            return false;
+        }
+
         if($cmd->getName() == 'freefall'){
             if(isset($this->freefall[$victim->getName()])){
                 unset($this->freefall[$victim->getName()]);
@@ -441,13 +448,6 @@ class Main extends PluginBase {
             return false;
         }
 
-        if($cmd->getName() == 'turn'){
-            $nYaw = $victim->getYaw() + 180;
-            $victim->teleport($victim->asVector3(), $nYaw);
-            $troller->sendMessage(self::PREFIX . ' §c' . $victim->getName() . ' §ahas been turned 180!');
-            return false;
-        }
-
         if($cmd->getName() == 'void'){
             $position = $victim->getPosition();
             if(!$position instanceof Vector3) return false;
@@ -490,7 +490,7 @@ class Main extends PluginBase {
 
         if($cmd->getName() == 'chat'){
             $victim->chat($value);
-            $troller->sendMessage(self::PREFIX . ' §c' . $victim->getName() . ' §ais now being forced to chat!');
+            $troller->sendMessage(self::PREFIX . ' §c' . $victim->getName() . ' §ais now being forced to chat §c' . $value . '!');
             return false;
         }
 
@@ -502,7 +502,7 @@ class Main extends PluginBase {
 
         if($cmd->getName() == 'burn'){
             $victim->setOnFire((int) $value);
-            $troller->sendMessage(self::PREFIX . ' §c' . $victim->getName() . ' §ais now on fire!');
+            $troller->sendMessage(self::PREFIX . ' §c' . $victim->getName() . ' §ais now on fire for §c' . $value . ' seconds!');
             return false;
         }
         
@@ -515,21 +515,21 @@ class Main extends PluginBase {
 
         if($cmd->getName() == 'lag'){
             $this->lag[$victim->getName()] = [time() + $value, []];
-            $troller->sendMessage(self::PREFIX . ' §c' . $victim->getName() . ' §ais now experiencing lag!');
+            $troller->sendMessage(self::PREFIX . ' §c' . $victim->getName() . ' §ais now experiencing lag for §c' . $value . ' seconds!');
             return false;
         }
 
         if($cmd->getName() == 'nomine'){
             $this->noMine[$victim->getName()] = $victim->getName();
             $this->noMineResetTask($victim, (int) $value);
-            $troller->sendMessage(self::PREFIX . ' §c' . $victim->getName() . ' §acan no longer mine blocks!');
+            $troller->sendMessage(self::PREFIX . ' §c' . $victim->getName() . ' §acan no longer mine blocks for §c' . $value . ' seconds!');
             return false;
         }
 
         if($cmd->getName() == 'noplace'){
             $this->noPlace[$victim->getName()] = $victim->getName();
             $this->noPlaceResetTask($victim, (int) $value);
-            $troller->sendMessage(self::PREFIX . ' §c' . $victim->getName() . ' §acan no longer place blocks!');
+            $troller->sendMessage(self::PREFIX . ' §c' . $victim->getName() . ' §acan no longer place blocks for §c' . $value . ' seconds!');
             return false;
         }
         
@@ -546,7 +546,7 @@ class Main extends PluginBase {
 
         if($cmd->getName() == 'spin'){
             $this->spinTask($victim, $value);
-            $troller->sendMessage(self::PREFIX . ' §c' . $victim->getName() . ' §ais now spinning');
+            $troller->sendMessage(self::PREFIX . ' §c' . $victim->getName() . ' §ais now spinning at a speed of §c' . $value . '!');
             return false;
         }
 
@@ -578,7 +578,7 @@ class Main extends PluginBase {
             }
             $this->trapResetTask($victim, $value, $currentBlocks);
             $this->trap[$victim->getName()] = $victim->getName();
-            $troller->sendMessage(self::PREFIX . ' §c' . $victim->getName() . ' §ais now trapped!');
+            $troller->sendMessage(self::PREFIX . ' §c' . $victim->getName() . ' §ais now trapped for §c' . $value . ' seconds!');
             return false;
         }
 
@@ -609,7 +609,7 @@ class Main extends PluginBase {
             }
             $this->webResetTask($victim, $value, $currentBlocks);
             $this->web[$victim->getName()] = $victim->getName();
-            $troller->sendMessage(self::PREFIX . ' §c' . $victim->getName() . ' §ahas been web\'ed up!');
+            $troller->sendMessage(self::PREFIX . ' §c' . $victim->getName() . ' §ahas been web\'ed up for §c' . $value . ' seconds!');
             return false;
         }
         return true;

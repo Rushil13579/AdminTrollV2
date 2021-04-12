@@ -67,6 +67,7 @@ class EventListener implements Listener {
         if($item->getId() == Item::APPLE and $item->getCustomName() == '§l§4Eat Me'){
             if($item->getNamedTag()->hasTag('BadApple')){
                 if($item->getNamedTag()->getString('BadApple') == 'BadApple'){
+                    $player->getInventory()->setItemInHand(Item::get(Item::AIR));
                     $player->setHealth(0);
                 }
             }

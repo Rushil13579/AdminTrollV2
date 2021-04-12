@@ -36,6 +36,8 @@ commands:
         description: Sends a op message to the victim. They are not opped...
     fakerestart:
         description: Awww.. the server is restarting, OR IS IT?
+    flip:
+        description: Flip the victim 180 degrees
     freefall:
         description: Damn! This hole is deep, I have been falling forever!
     garble:
@@ -74,8 +76,6 @@ commands:
         description: The victim does not deserve to be free
     trollhelp:
         description: List of trolls and thier usages
-    turn:
-        description: Turn the victim 180 degrees
     void:
         description: Journey to the center of the Earth, or in this case the void...
     web:
