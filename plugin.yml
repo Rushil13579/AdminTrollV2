@@ -19,7 +19,7 @@ commands:
     chat:
         description: Sends a chat message or run a command on behalf of the victim
     clumsy:
-        description: Carefull! The victim might just drop something
+        description: Careful! The victim might just drop something
     crash:
         description: Kicks the play with a not so nice disconnected message
     dropinv:
@@ -33,7 +33,7 @@ commands:
     fakedeop:
         description: Sends a deop message to the victim. They are not deopped...
     fakeop:
-        description: Sends a op message to the victim. They are not opped...
+        description: Sends an op message to the victim. They are not opped...
     fakerestart:
         description: Awww.. the server is restarting, OR IS IT?
     flip:
@@ -47,7 +47,7 @@ commands:
     hurt:
         description: Ouch! That hurts...
     lag:
-        description: Makes the victim experince fake lag! Doesn't affect the server (toggleable)
+        description: Makes the victim experience fake lag! Doesn't affect the server (toggleable)
     launch:
         description: 3... 2... 1... liftoff!
     nomine:
@@ -61,13 +61,13 @@ commands:
     push:
         description: An uncontrolled flight
     shuffle:
-        description: Ugh! I dont even know what is where now... (undoable)
+        description: Ugh! I don't even know what is where now... (undoable)
     rewind:
-        descripiton: Rewinds the blocks placed/broken by the victim. This ought to confuse em! (toggleable)
+        description: Rewinds the blocks placed/broken by the victim. This ought to confuse em! (toggleable)
     spam:
         description: Spams the victim's chat in enchantment table language... see if you can decipher it
     spin:
-        descripiton: Make your victim's dizzy!
+        description: Make your victim's dizzy!
     starve:
         description: The victim's metabolism must be really fast
     swap:
@@ -75,7 +75,7 @@ commands:
     trap:
         description: The victim does not deserve to be free
     trollhelp:
-        description: List of trolls and thier usages
+        description: List of trolls and their usages
     void:
         description: Journey to the center of the Earth, or in this case the void...
     web:
