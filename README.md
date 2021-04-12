@@ -3,6 +3,7 @@ A Pocketmine-MP plugin to Troll your Frenimies!
 
 - The **BEST** troll plugin for Pocketmine-MP!
 - Contains 36 unique trolls, with many more to come
+- All trolls have been extensively tested and shouldn't have any issues. Incase you find any issues please report them :)
 - If you have any suggestions/ideas/questions/bugs go [here](https://github.com/Rushil13579/AdminTrollV2/issues) or contact me on discord at **Rushil#2326**
 
 ## Features
@@ -27,28 +28,28 @@ Commands | Descriptions
 /enderman (player) | The victim is teleporting all around?
 /fakeban (player) | Are you sure you got banned?
 /fakedeop (player) | Sends a deop message to the victim. They are not deopped...
-/fakeop (player) | Sends a op message to the victim. They are not opped...
+/fakeop (player) | Sends an op message to the victim. They are not opped...
 /fakerestart | Awww... the server is restarting, OR IS IT?
 /flip (player) | Flip the victim 180 degrees
 /freefall | Damn! This hole is deep, I have been falling forever!
 /garble (player) | The victim's messages will stop making sense (toggleable)
 /haunt (player) | Spooky sounds O_O!
 /hurt (player) [damage...] | Ouch! That hurts...
-/lag (player) [seconds...] | Makes the victim experince fake lag! Doesn't affect the server (toggleable)
+/lag (player) [seconds...] | Makes the victim experience fake lag! Doesn't affect the server (toggleable)
 /launch (player) | 3... 2... 1... liftoff!
 /nomine (player) [seconds...] | Oh cant mine? Probably lag...
 /noplace (player) [seconds...] | Oh cant place? Probably lag...
 /potatoinv (player) | Fills the victim's inventory with potatoes (undoable)
 /pumpkinhead (player) | Gotta hide from the endermen (undoable)
 /push (player) | An uncontrolled flight
-/shuffle (player) | Ugh! I dont even know what is where now... (undoable)
+/shuffle (player) | Ugh! I don't even know what is where now... (undoable)
 /rewind (player) | Rewinds the blocks placed/broken by the victim. This ought to confuse em! (toggleable)
 /spam (player) | Spams the victim's chat in enchantment table language... see if you can decipher it
 /spin (player) [speed...] | Make your victim's dizzy!
 /starve (player) [amount...] | The victim's metabolism must be really fast
 /swap (player) | Swap positions with your victim
 /trap (player) [seconds...] | The victim does not deserve to be free
-/trollhelp | List of trolls and thier usages
+/trollhelp | List of trolls and their usages
 /void (player) | Journey to the center of the Earth, or in this case the void...
 /web (player) [seconds...] | Web em up!
 
