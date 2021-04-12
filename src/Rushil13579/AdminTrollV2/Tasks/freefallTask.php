@@ -19,7 +19,13 @@ class freefallTask extends Task {
     private $victim;
 
     /** @var Int */
+    private $x;
+
+    /** @var Int */
     private $y;
+
+    /** @var Int */
+    private $z;
 
     public function __construct(Main $main, Player $victim){
         $this->main = $main;

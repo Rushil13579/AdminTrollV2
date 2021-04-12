@@ -21,10 +21,8 @@ class spinTask extends Task {
     /** @var Int */
     private $speed;
 
-    /** @var Int */
     private $victimYaw;
 
-    /** @var Int */
     private $rotations = 10;
 
     public function __construct(Main $main, Player $victim, Int $speed){
