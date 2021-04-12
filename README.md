@@ -1,5 +1,5 @@
 # AdminTrollV2
-A Pocketmine-MP plugin to troll your frenimies!
+A Pocketmine-MP plugin to Troll your Frenimies!
 
 - The **BEST** troll plugin for Pocketmine-MP!
 - Contains 36 unique trolls, with many more to come
@@ -17,7 +17,7 @@ Commands | Descriptions
 /alone (player) | Hides every player for the victim (toggleable)
 /badapple (player) | The doctor says never eat an apple if it has gone bad... what if you still do?
 /bolt (player) | The victim is really feeling the wrath of the God of lightning!
-/boom (player) | Blow up your enemies!
+/boom (player) | Blow up your frenemies!
 /burn (player) [seconds...] | BURN!!
 /chat (player) [message...] | Sends a chat message or run a command on behalf of the victim
 /clumsy (player) | Careful! The victim might just drop something
