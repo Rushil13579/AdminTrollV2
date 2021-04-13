@@ -54,13 +54,13 @@ Commands | Descriptions
 /web (player) [seconds...] | Web em up!
 
 ## Future Plans
-- All trols to be made as sub-commands. Example: /troll push (player)
+- All trolls to be made as sub-commands. Example: /troll push (player)
 - Rewind troll's name to be changed to undo
 - The new rewind troll (time flows backwards for the said player)
 - Useless (Renames all items in a player's inventory to useless)
-- Trickle (Drains the player's xp over time)
-- Abduct (The player has been taken to a alien ship and cannot escape)
-- Noob (The player is taken to the skies and sees the word noob written in dirt in front of him)
+- Trickle (Drains the player's XP over time)
+- Abduct (The player has been taken to an alien ship and cannot escape)
+- Noob (The player is taken to the skies and sees the word noob written in dirt blocks in front of him)
 
 - If you have any more suggestions you can go [here]https://github.com/Rushil13579/AdminTrollV2/issues) or contact me on discord at **Rushil#2326**
 
