@@ -54,6 +54,7 @@ Commands | Descriptions
 /web (player) [seconds...] | Web em up!
 
 ## Future Plans
+- All trols to be made as sub-commands. Example: /troll push (player)
 - Rewind troll's name to be changed to undo
 - The new rewind troll (time flows backwards for the said player)
 - Useless (Renames all items in a player's inventory to useless)
