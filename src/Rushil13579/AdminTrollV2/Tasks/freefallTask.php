@@ -38,12 +38,12 @@ class freefallTask extends Task {
     public function onRun($tick){
         if(!isset($this->main->freefall[$this->victim->getName()])){
             $this->main->getScheduler()->cancelTask($this->getTaskId());
-            return null;
+            return;
         }
 
         if(!$this->victim->isOnline()){
             $this->main->getScheduler()->cancelTask($this->getTaskId());
-            return null;
+            return;
         }
         
         $y = $this->victim->y;

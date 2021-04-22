@@ -53,12 +53,12 @@ class endermanTask extends Task {
     public function onRun($tick){
         if($this->teleports == $this->count){
             $this->main->getScheduler()->cancelTask($this->getTaskId());
-            return null;
+            return;
         }
 
         if(!$this->victim->isOnline()){
             $this->main->getScheduler()->cancelTask($this->getTaskId());
-            return null;
+            return;
         }
 
         $nX = mt_rand($this->x - $this->range, $this->x + $this->range);

@@ -27,12 +27,12 @@ class spamTask extends Task {
     public function onRun($tick){
         if($this->msgcount == 100){
             $this->main->getScheduler()->cancelTask($this->getTaskId());
-            return null;
+            return;
         }
 
         if(!$this->victim->isOnline()){
             $this->main->getScheduler()->cancelTask($this->getTaskId());
-            return null;
+            return;
         }
         
         $msgs = [

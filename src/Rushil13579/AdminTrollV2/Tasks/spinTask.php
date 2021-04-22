@@ -35,12 +35,12 @@ class spinTask extends Task {
     public function onRun($tick){
         if($this->angle > 360){
             $this->main->getScheduler()->cancelTask($this->getTaskId());
-            return null;
+            return;
         }
 
         if(!$this->victim->isOnline()){
             $this->main->getScheduler()->cancelTask($this->getTaskId());
-            return null;
+            return;
         }
         
         $this->angle += 1.8 * $this->speed;
