@@ -5,12 +5,13 @@ namespace Rushil13579\AdminTrollV2\Tasks;
 use pocketmine\Player;
 
 use pocketmine\block\Block;
+use pocketmine\level\Position;
 
 use pocketmine\scheduler\Task;
 
 use Rushil13579\AdminTrollV2\Main;
 
-class voidResetTask extends Task {
+class noobResetTask extends Task {
 
     /** @var Main */
     private $main;
@@ -21,10 +22,15 @@ class voidResetTask extends Task {
     /** @var Array */
     private $blocks;
 
-    public function __construct(Main $main, Player $victim, Array $blocks){
+
+    /** @var Position */
+    private $position;
+
+    public function __construct(Main $main, Player $victim, Array $blocks, Position $position){
         $this->main = $main;
         $this->victim = $victim;
         $this->blocks = $blocks;
+        $this->position = $position;
     }
 
     public function onRun($tick){
@@ -34,8 +40,11 @@ class voidResetTask extends Task {
             }
         }
         
-        if(isset($this->main->void[$this->victim->getName()])){
-            unset($this->main->void[$this->victim->getName()]);
+        if(isset($this->main->noob[$this->victim->getName()])){
+            unset($this->main->noob[$this->victim->getName()]);
+            $this->victim->teleport($this->victim->level->getBlockAt($this->position->x, $this->position->y, $this->position->z));
+            $this->victim->setImmobile(false);
+            $this->victim->chat('I am a noob');
         }
     }
 }

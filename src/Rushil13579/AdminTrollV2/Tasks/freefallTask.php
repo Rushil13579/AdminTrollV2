@@ -38,8 +38,14 @@ class freefallTask extends Task {
     public function onRun($tick){
         if(!isset($this->main->freefall[$this->victim->getName()])){
             $this->main->getScheduler()->cancelTask($this->getTaskId());
+            return null;
         }
 
+        if(!$this->victim->isOnline()){
+            $this->main->getScheduler()->cancelTask($this->getTaskId());
+            return null;
+        }
+        
         $y = $this->victim->y;
         if($y - $this->y <= 10){
             $this->victim->teleport($this->victim->level->getBlockAt($this->x, $y + $this->main->cfg->get('freefall_troll_height'), $this->z));

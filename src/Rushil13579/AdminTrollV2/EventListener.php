@@ -9,18 +9,21 @@ use pocketmine\event\player\{
     PlayerChatEvent,
     PlayerCommandPreprocessEvent,
     PlayerItemConsumeEvent,
+    PlayerMoveEvent,
     PlayerQuitEvent
 };
 use pocketmine\event\block\{
     BlockBreakEvent,
     BlockPlaceEvent
 };
+use pocketmine\event\inventory\InventoryPickupItemEvent;
 use pocketmine\event\server\{
     DataPacketSendEvent,
     DataPacketReceiveEvent
 };
 
 use pocketmine\item\Item;
+use pocketmine\inventory\PlayerInventory;
 
 use pocketmine\nbt\tag\StringTag;
 
@@ -53,7 +56,7 @@ class EventListener implements Listener {
 
         $player = $ev->getPlayer();
 
-        if(isset($this->main->trap[$player->getName()]) or isset($this->main->void[$player->getName()]) or isset($this->main->web[$player->getName()]) or isset($this->main->freefall[$player->getName()])){
+        if(isset($this->main->noob[$player->getName()]) or isset($this->main->trap[$player->getName()]) or isset($this->main->void[$player->getName()]) or isset($this->main->web[$player->getName()]) or isset($this->main->freefall[$player->getName()])){
             $ev->setCancelled();
         }
     }
@@ -74,15 +77,65 @@ class EventListener implements Listener {
         }
     }
 
+    public function onMove(PlayerMoveEvent $ev){
+        if($ev->isCancelled()) return null;
+
+        $player = $ev->getPlayer();
+
+        if(isset($this->main->noob[$player->getName()])){
+            $player->setImmobile();
+        }
+    }
+
     public function onQuit(PlayerQuitEvent $ev){
         $player = $ev->getPlayer();
 
-        if(isset($this->main->lag[$player->getName()])){
-            unset($this->main->lag[$player->getName()]);
+        if(isset($this->main->alone[$player->getName()])){
+            unset($this->main->alone[$player->getName()]);
         }
 
         if(isset($this->main->freefall[$player->getName()])){
             unset($this->main->freefall[$player->getName()]);
+        }
+
+        if(isset($this->main->garble[$player->getName()])){
+            unset($this->main->garble[$player->getName()]);
+        }
+
+        if(isset($this->main->fakeLag[$player->getName()])){
+            unset($this->main->fakeLag[$player->getName()]);
+        }
+
+        if(isset($this->main->noMine[$player->getName()])){
+            unset($this->main->noMine[$player->getName()]);
+        }
+
+        if(isset($this->main->noob[$player->getName()])){
+            unset($this->main->noob[$player->getName()]);
+        }
+
+        if(isset($this->main->noPick[$player->getName()])){
+            unset($this->main->noPick[$player->getName()]);
+        }
+
+        if(isset($this->main->noPlace[$player->getName()])){
+            unset($this->main->noPlace[$player->getName()]);
+        }
+
+        if(isset($this->main->trap[$player->getName()])){
+            unset($this->main->trap[$player->getName()]);
+        }
+
+        if(isset($this->main->undo[$player->getName()])){
+            unset($this->main->undo[$player->getName()]);
+        }
+
+        if(isset($this->main->void[$player->getName()])){
+            unset($this->main->void[$player->getName()]);
+        }
+
+        if(isset($this->main->web[$player->getName()])){
+            unset($this->main->web[$player->getName()]);
         }
     }
 
@@ -91,13 +144,13 @@ class EventListener implements Listener {
 
         $player = $ev->getPlayer();
 
-        if(isset($this->main->noMine[$player->getName()]) or isset($this->main->trap[$player->getName()])){
+        if(isset($this->main->noMine[$player->getName()]) or isset($this->main->noob[$player->getName()]) or isset($this->main->trap[$player->getName()]) or isset($this->main->web[$player->getName()])){
             $ev->setCancelled();
         }
 
-        if(isset($this->main->rewind[$player->getName()])){
+        if(isset($this->main->undo[$player->getName()])){
             $currentBlock = $ev->getBlock();
-            $this->main->rewindBlockTask($player, $currentBlock);
+            $this->main->undoTask($currentBlock);
         }
     }
 
@@ -110,9 +163,21 @@ class EventListener implements Listener {
             $ev->setCancelled();
         }
 
-        if(isset($this->main->rewind[$player->getName()])){
+        if(isset($this->main->undo[$player->getName()])){
             $currentBlock = $ev->getBlockReplaced();
-            $this->main->rewindBlockTask($player, $currentBlock);
+            $this->main->undoTask($currentBlock);
+        }
+    }
+
+    public function onPickupItem(InventoryPickupItemEvent $ev){
+        if($ev->isCancelled()) return null;
+
+        if(!$ev->getInventory() instanceof PlayerInventory) return null;
+
+        $player = $ev->getInventory()->getHolder();
+
+        if(isset($this->main->noPick[$player->getName()])){
+            $ev->setCancelled();
         }
     }
 
@@ -120,14 +185,14 @@ class EventListener implements Listener {
         $player = $ev->getPlayer();
         $packet = $ev->getPacket();
 
-        if(isset($this->main->lag[$player->getName()])){
-            $expiry = $this->main->lag[$player->getName()][0];
+        if(isset($this->main->fakeLag[$player->getName()])){
+            $expiry = $this->main->fakeLag[$player->getName()][0];
             if($expiry > time()){
                 $ev->setCancelled();
-                $this->main->lag[$player->getName()][1][] = $packet;
+                $this->main->fakeLag[$player->getName()][1][] = $packet;
             } else {
-                $pks = $this->main->lag[$player->getName()][1];
-                unset($this->main->lag[$player->getName()]);
+                $pks = $this->main->fakeLag[$player->getName()][1];
+                unset($this->main->fakeLag[$player->getName()]);
                 foreach($pks as $pk){
                     if($pk->isEncoded){
                         $pk->decode();
@@ -141,8 +206,8 @@ class EventListener implements Listener {
     public function onReceivePacket(DataPacketReceiveEvent $ev){
         $player = $ev->getPlayer();
 
-        if(isset($this->main->lag[$player->getName()])){
-            $expiry = $this->main->lag[$player->getName()][0];
+        if(isset($this->main->fakeLag[$player->getName()])){
+            $expiry = $this->main->fakeLag[$player->getName()][0];
             if($expiry > time()){
                 $ev->setCancelled();
             }

@@ -23,7 +23,7 @@ class spinTask extends Task {
 
     private $victimYaw;
 
-    private $rotations = 10;
+    private $angle = 0;
 
     public function __construct(Main $main, Player $victim, Int $speed){
         $this->main = $main;
@@ -33,10 +33,17 @@ class spinTask extends Task {
     }
 
     public function onRun($tick){
-        if($this->rotations > 360){
+        if($this->angle > 360){
             $this->main->getScheduler()->cancelTask($this->getTaskId());
+            return null;
         }
-        $this->rotations += 1.8 * $this->speed;
+
+        if(!$this->victim->isOnline()){
+            $this->main->getScheduler()->cancelTask($this->getTaskId());
+            return null;
+        }
+        
+        $this->angle += 1.8 * $this->speed;
         $this->victimYaw += 1.8 * $this->speed;
         $this->victim->teleport($this->victim->asVector3(), $this->victimYaw);
     }

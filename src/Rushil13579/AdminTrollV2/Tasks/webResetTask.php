@@ -33,6 +33,7 @@ class webResetTask extends Task {
                 $block->level->setBlock($block->asVector3(), $block);
             }
         }
+        
         if(isset($this->main->web[$this->victim->getName()])){
             unset($this->main->web[$this->victim->getName()]);
         }

@@ -27,7 +27,14 @@ class clumsyTask extends Task {
     public function onRun($tick){
         if($this->count == 10){
             $this->main->getScheduler()->cancelTask($this->getTaskId());
+            return null;
         }
+        
+        if(!$this->victim->isOnline()){
+            $this->main->getScheduler()->cancelTask($this->getTaskId());
+            return null;
+        }
+        
         $v = mt_rand(0, 35);
         foreach($this->victim->getInventory()->getContents() as $index => $item){
             if($index == $v){

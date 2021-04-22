@@ -38,7 +38,7 @@ class endermanTask extends Task {
     private $count;
 
     /** @var Int */
-    private $teleports;
+    private $teleports = 0;
 
     public function __construct(Main $main, Player $victim, Int $x, Int $y, Int $z, Int $range, Int $count){
         $this->main = $main;
@@ -53,6 +53,12 @@ class endermanTask extends Task {
     public function onRun($tick){
         if($this->teleports == $this->count){
             $this->main->getScheduler()->cancelTask($this->getTaskId());
+            return null;
+        }
+
+        if(!$this->victim->isOnline()){
+            $this->main->getScheduler()->cancelTask($this->getTaskId());
+            return null;
         }
 
         $nX = mt_rand($this->x - $this->range, $this->x + $this->range);

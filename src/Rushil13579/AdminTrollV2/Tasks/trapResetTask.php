@@ -33,6 +33,7 @@ class trapResetTask extends Task {
                 $block->level->setBlock($block->asVector3(), $block);
             }
         }
+        
         if(isset($this->main->trap[$this->victim->getName()])){
             unset($this->main->trap[$this->victim->getName()]);
         }

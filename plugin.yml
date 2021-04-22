@@ -1,85 +1,9 @@
 name: AdminTrollV2
 main: Rushil13579\AdminTrollV2\Main
 api: 3.0.0
-version: 1.1.0
+version: 1.2.0
 mcpe-protocol: [431]
 author: Rushil13579
-
-commands:
-    alone:
-        description: Hides every player for the victim (toggleable)
-    badapple:
-        description: The doctor says, never eat an apple if it has gone bad... what if you still do?
-    bolt:
-        description: The victim is really feeling the wrath of the God of lightning!
-    boom:
-        description: Blow up your enemies!
-    burn:
-        description: BURN!!
-    chat:
-        description: Sends a chat message or run a command on behalf of the victim
-    clumsy:
-        description: Careful! The victim might just drop something
-    crash:
-        description: Kicks the play with a not so nice disconnected message
-    dropinv:
-        description: The victim fell and dropped his inventory (undoable)
-    drunk:
-        description: Drank too much... feeling nauseous
-    enderman:
-        description: The victim is teleporting all around?
-    fakeban:
-        description: Are you sure you got banned?
-    fakedeop:
-        description: Sends a deop message to the victim. They are not deopped...
-    fakeop:
-        description: Sends an op message to the victim. They are not opped...
-    fakerestart:
-        description: Awww.. the server is restarting, OR IS IT?
-    flip:
-        description: Flip the victim 180 degrees
-    freefall:
-        description: Damn! This hole is deep, I have been falling forever!
-    garble:
-        description: The victim's messages will stop making sense (toggleable)
-    haunt:
-        description: Spooky sounds O_O!
-    hurt:
-        description: Ouch! That hurts...
-    lag:
-        description: Makes the victim experience fake lag! Doesn't affect the server (toggleable)
-    launch:
-        description: 3... 2... 1... liftoff!
-    nomine:
-        description: Oh cant mine? Probably lag...
-    noplace:
-        description: Oh cant place? Probably lag...
-    potatoinv:
-        description: Fills the victim's inventory with potatoes (undoable)
-    pumpkinhead:
-        description: Gotta hide from the endermen (undoable)
-    push:
-        description: An uncontrolled flight
-    shuffle:
-        description: Ugh! I don't even know what is where now... (undoable)
-    rewind:
-        description: Rewinds the blocks placed/broken by the victim. This ought to confuse em! (toggleable)
-    spam:
-        description: Spams the victim's chat in enchantment table language... see if you can decipher it
-    spin:
-        description: Make your victim's dizzy!
-    starve:
-        description: The victim's metabolism must be really fast
-    swap:
-        description: Swap positions with your victim
-    trap:
-        description: The victim does not deserve to be free
-    trollhelp:
-        description: List of trolls and their usages
-    void:
-        description: Journey to the center of the Earth, or in this case the void...
-    web:
-        description: Web em up!
 
 permissions:
     admintrollv2.all:
