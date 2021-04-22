@@ -2,7 +2,7 @@
 A Pocketmine-MP plugin to Troll your Frenimies!
 
 - The **BEST** troll plugin for Pocketmine-MP!
-- Contains 36 unique trolls, with many more to come
+- Contains 39 unique trolls, with many more to come
 - All trolls have been extensively tested and shouldn't have any issues. Incase you find any issues please report them :)
 - If you have any suggestions/ideas/questions/bugs go [here](https://github.com/Rushil13579/AdminTrollV2/issues) or contact me on discord at **Rushil#2326**
 
@@ -15,52 +15,50 @@ A Pocketmine-MP plugin to Troll your Frenimies!
 
 Commands | Descriptions
 ---------|-------------
-/alone (player) | Hides every player for the victim (toggleable)
-/badapple (player) | The doctor says never eat an apple if it has gone bad... what if you still do?
-/bolt (player) | The victim is really feeling the wrath of the God of lightning!
-/boom (player) | Blow up your frenemies!
-/burn (player) [seconds...] | BURN!!
-/chat (player) [message...] | Sends a chat message or run a command on behalf of the victim
-/clumsy (player) | Careful! The victim might just drop something
-/crash (player) | Kicks the play with a not so nice disconnected message
-/dropinv (player) | The victim fell and dropped his inventory (undoable)
-/drunk (player) | Drank too much... feeling nauseous
-/enderman (player) | The victim is teleporting all around?
-/fakeban (player) | Are you sure you got banned?
-/fakedeop (player) | Sends a deop message to the victim. They are not deopped...
-/fakeop (player) | Sends an op message to the victim. They are not opped...
-/fakerestart | Awww... the server is restarting, OR IS IT?
-/flip (player) | Flip the victim 180 degrees
-/freefall | Damn! This hole is deep, I have been falling forever!
-/garble (player) | The victim's messages will stop making sense (toggleable)
-/haunt (player) | Spooky sounds O_O!
-/hurt (player) [damage...] | Ouch! That hurts...
-/lag (player) [seconds...] | Makes the victim experience fake lag! Doesn't affect the server (toggleable)
-/launch (player) | 3... 2... 1... liftoff!
-/nomine (player) [seconds...] | Oh cant mine? Probably lag...
-/noplace (player) [seconds...] | Oh cant place? Probably lag...
-/potatoinv (player) | Fills the victim's inventory with potatoes (undoable)
-/pumpkinhead (player) | Gotta hide from the endermen (undoable)
-/push (player) | An uncontrolled flight
-/shuffle (player) | Ugh! I don't even know what is where now... (undoable)
-/rewind (player) | Rewinds the blocks placed/broken by the victim. This ought to confuse em! (toggleable)
-/spam (player) | Spams the victim's chat in enchantment table language... see if you can decipher it
-/spin (player) [speed...] | Make your victim's dizzy!
-/starve (player) [amount...] | The victim's metabolism must be really fast
-/swap (player) | Swap positions with your victim
-/trap (player) [seconds...] | The victim does not deserve to be free
-/trollhelp | List of trolls and their usages
-/void (player) | Journey to the center of the Earth, or in this case the void...
-/web (player) [seconds...] | Web em up!
+/troll alone (player) | Hides every player for the victim (toggleable)
+/troll badapple (player) | The doctor says never eat an apple if it has gone bad... what if you still do?
+/troll bolt (player) | The victim is really feeling the wrath of the God of lightning!
+/troll boom (player) | Blow up your frenemies!
+/troll burn (player) [seconds...] | BURN!!
+/troll chat (player) [message...] | Sends a chat message or run a command on behalf of the victim
+/troll clumsy (player) | Careful! The victim might just drop something
+/troll crash (player) | Kicks the play with a not so nice disconnected message
+/troll dropinv (player) | The victim fell and dropped his inventory (undoable)
+/troll drunk (player) | Drank too much... feeling nauseous
+/troll enderman (player) | The victim is teleporting all around?
+/troll fakeban (player) | Are you sure you got banned?
+/troll fakedeop (player) | Sends a deop message to the victim. They are not deopped...
+/troll fakelag (player) [seconds...] | Makes the victim experience fake lag! Doesn't affect the server (toggleable)
+/troll fakeop (player) | Sends an op message to the victim. They are not opped...
+/troll fakerestart | Awww... the server is restarting, OR IS IT?
+/troll flip (player) | Flip the victim 180 degrees
+/troll freefall | Damn! This hole is deep, I have been falling forever!
+/troll garble (player) | The victim's messages will stop making sense (toggleable)
+/troll haunt (player) | Spooky sounds O_O!
+/troll help | List of trolls and their usages
+/troll hurt (player) [damage...] | Ouch! That hurts...
+/troll launch (player) | 3... 2... 1... liftoff!
+/troll nomine (player) [seconds...] | Oh cant mine? Probably lag...
+/troll noob (player) | Make the victim realise that they are a noob
+/troll nopick (player) [seconds...] | Prevents the player from picking up items
+/troll noplace (player) [seconds...] | Oh cant place? Probably lag...
+/troll potatoinv (player) | Fills the victim's inventory with potatoes (undoable)
+/troll pumpkinhead (player) | Gotta hide from the endermen (undoable)
+/troll push (player) | An uncontrolled flight
+/troll shuffle (player) | Ugh! I don't even know what is where now... (undoable)
+/troll spam (player) | Spams the victim's chat in enchantment table language... see if you can decipher it
+/troll spin (player) [speed...] | Make your victim's dizzy!
+/troll starve (player) [amount...] | The victim's metabolism must be really fast
+/troll swap (player) | Swap positions with your victim
+/troll trap (player) [seconds...] | The victim does not deserve to be free
+/troll undo (player) | Undo's the blocks placed/broken by the victim. This ought to confuse em! (toggleable)
+/troll useless (player) | Rename all the items of the victim to 'useless'
+/troll void (player) | Journey to the center of the Earth, or in this case the void...
+/troll web (player) [seconds...] | Web em up!
 
 ## Future Plans
-- All trolls to be made as sub-commands. Example: /troll push (player)
-- Rewind troll's name to be changed to undo
-- The new rewind troll (time flows backwards for the said player)
-- Useless (Renames all items in a player's inventory to useless)
 - Trickle (Drains the player's XP over time)
 - Abduct (The player has been taken to an alien ship and cannot escape)
-- Noob (The player is taken to the skies and sees the word noob written in dirt blocks in front of him)
 
 - If you have any more suggestions you can go [here]https://github.com/Rushil13579/AdminTrollV2/issues) or contact me on discord at **Rushil#2326**
 
