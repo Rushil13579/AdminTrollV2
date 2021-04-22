@@ -2,10 +2,9 @@
 
 namespace Rushil13579\AdminTrollV2;
 
-use pocketmine\{
-    Plugin,
-    Player
-};
+use pocketmine\Player;
+
+use pocketmine\plugin\Plugin;
 
 use pocketmine\command\{
     Command,
@@ -746,7 +745,7 @@ class TrollCommand extends Command implements PluginIdentifiableCommand {
         }
     }
 
-    public function getPlugin() : Main {
+    public function getPlugin() : Plugin {
         return $this->main;
     }
 }
