@@ -60,7 +60,7 @@ Commands | Descriptions
 - Trickle (Drains the player's XP over time)
 - Abduct (The player has been taken to an alien ship and cannot escape)
 
-- If you have any more suggestions you can go [here]https://github.com/Rushil13579/AdminTrollV2/issues) or contact me on discord at **Rushil#2326**
+- If you have any more suggestions you can go [here](https://github.com/Rushil13579/AdminTrollV2/issues) or contact me on discord at **Rushil#2326**
 
 ## Credits
 
