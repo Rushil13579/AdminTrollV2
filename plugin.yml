@@ -2,7 +2,7 @@ name: AdminTrollV2
 main: Rushil13579\AdminTrollV2\Main
 api: 3.0.0
 version: 1.2.0
-mcpe-protocol: [448]
+mcpe-protocol: [440, 448, 465, 471]
 author: Rushil13579
 
 permissions:
